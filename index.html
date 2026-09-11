@@ -1,219 +1,58 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio - Ingeniería de sistemas</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="preload" href="normalize.css" as="style">
-    <link rel="stylesheet" href="normalize.css">
-    <link rel="preload" href="style.css" as="style">
-    <link rel="stylesheet" href="style.css">
+    <title>Proyecto Portafolio</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
-    <!-- Encabezado de la página -->
-    <!-- id justificado: el header principal es único en la página, se usa para
-         demostrar especificidad de id sobre clase (ver styles.css) -->
-    <header class="header" id="header-principal">
-        <h1 class="header__titulo">ingenieria de sistemas</h1>
+    <header class="header">
+        <h1 class="header__titulo">Nuestro Portafolio</h1>
     </header>
 
-    <!-- Menú principal: enlaces ancla a cada sección -->
-    <nav class="nav">
-        <a class="nav__enlace" href="#inicio">inicio</a>
-        <a class="nav__enlace" href="#sobre-mi">sobre nosotros</a>
-        <a class="nav__enlace" href="#contacto">contactos</a>
-    </nav>
-
     <main>
-
-        <!-- Sección de portada: imagen de fondo y texto centrado -->
-        <section class="hero" id="inicio">
-        <div class="hero__contenido">
-            <h2 class="hero__titulo">Bienvenido a mi sitio web</h2>
-            <p class="hero__texto">Esta es una descripción corta de lo que ofrezco.</p>
-            <p class="hero__ubicacion"><svg class="icono"
-                xmlns="http://www.w3.org/2000/svg"
-                width="32"
-                height="32"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#607d8b"
-                stroke-width="1"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                >
-                <path d="M12 18.5l-3 -1.5l-6 3v-13l6 -3l6 3l6 -3v7.5" />
-                <path d="M9 4v13" />
-                <path d="M15 7v5.5" />
-                <path d="M21.121 20.121a3 3 0 1 0 -4.242 0c.418 .419 1.125 1.045 2.121 1.879c1.051 -.89 1.759 -1.516 2.121 -1.879z" />
-                <path d="M19 18v.01" />
-                </svg>
-                        popayan, colombia
-                        </p>
-            <a href="#contacto" class="hero__cta">Contactame</a>
-        </div>
-        </section>
-
-        <!-- Sección Sobre mí -->
-        <section class="sobre-mi" id="sobre-mi">
-            <h2 class="titulo-seccion">sobre mí</h2>
-            <p class="sobre-mi__texto">
-                Hola soy daniel cobo Soy estudiante de ingeniería de sistemas con experiencia en mantenimiento de equipos
-                electrónicos y desarrollo de software. Me apasiona crear soluciones tecnológicas
-                prácticas, desde aplicaciones web hasta programas de escritorio, y disfruto aprendiendo
-                nuevas herramientas para mejorar cada proyecto en el que trabajo.
-            </p>
-        </section>
-
- <!-- Lista de servicios -->
- <section class="servicios" id="servicios">
-    <h2 class="titulo-seccion">Mis servicios</h2>
-
-    <!-- Nuevo contenedor SOLO para las tarjetas -->
-    <div class="servicios__grid">
-        
-        <article class="tarjeta">
-            <div class="tarjeta__cabecera">
-                <svg xmlns="http://www.w3.org/2000/svg"
-                    width="50"
-                    height="50"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="icono">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M3 19l18 0" />
-                    <path d="M5 7a1 1 0 0 1 1 -1h12a1 1 0 0 1 1 1v8a1 1 0 0 1 -1 1h-12a1 1 0 0 1 -1 -1l0 -8" />
-                </svg>
-                <span class="tarjeta__nombre">mantenimiento de equipos electronicos</span>
-            </div>
-            <p class="tarjeta__texto">
-                realizo mantenimiento a equipos electronicos como computadores, impresoras, telefonos, etc.
-            </p>
-        </article>
-        
-        <article class="tarjeta">
-            <div class="tarjeta__cabecera">
-                <svg xmlns="http://www.w3.org/2000/svg"
-                width="50"
-                height="50"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="icono">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M3 19l18 0" />
-                    <path d="M5 7a1 1 0 0 1 1 -1h12a1 1 0 0 1 1 1v8a1 1 0 0 1 -1 1h-12a1 1 0 0 1 -1 -1l0 -8" />
-                </svg>
-                <span class="tarjeta__nombre">programacion de aplicaciones web</span>
-            </div>
-            <p class="tarjeta__texto">
-                realizo programacion de aplicaciones web como html, css, javascript, etc.
-            </p>
-        </article>
-        
-        <article class="tarjeta">
-            <div class="tarjeta__cabecera">
-                <svg xmlns="http://www.w3.org/2000/svg"
-                width="50"
-                height="50"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="icono">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M3 19l18 0" />
-                    <path d="M5 7a1 1 0 0 1 1 -1h12a1 1 0 0 1 1 1v8a1 1 0 0 1 -1 1h-12a1 1 0 0 1 -1 -1l0 -8" />
-                </svg>
-                <span class="tarjeta__nombre">programacion de aplicaciones moviles</span>
-            </div>
-            <p class="tarjeta__texto">
-                realizo programacion de aplicaciones moviles como android, ios, etc.
-            </p>
-        </article>
-        
-        <article class="tarjeta">
-            <div class="tarjeta__cabecera">
-                <svg xmlns="http://www.w3.org/2000/svg"
-                width="50"
-                height="50"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="icono">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M3 19l18 0" />
-                    <path d="M5 7a1 1 0 0 1 1 -1h12a1 1 0 0 1 1 1v8a1 1 0 0 1 -1 1h-12a1 1 0 0 1 -1 -1l0 -8" />
-                </svg>
-                <span class="tarjeta__nombre">programacion de aplicaciones de escritorio</span>
-            </div>
-            <p class="tarjeta__texto">
-                realizo programacion de aplicaciones de escritorio como windows, linux, etc.
-            </p>
-        </article>
-
-    </div>
-</section>
-
-            <!-- Formulario de contacto -->
-            <section class="contacto" id="contacto">
-                <h2 class="contacto__titulo">contacto</h2>
-                <p class="contacto__texto">¿Tienes alguna pregunta? Contáctame.</p>
-
-                <form class="formulario">
-                    <label class="formulario__etiqueta" for="nombre">Nombre:</label>
-                    <input class="formulario__campo" type="text" id="nombre" name="nombre">
-
-                    <label class="formulario__etiqueta" for="email">Correo:</label>
-                    <input class="formulario__campo" type="email" id="email" name="email">
-
-                    <label class="formulario__etiqueta" for="mensaje">Mensaje:</label>
-                    <textarea class="formulario__campo formulario__campo--mensaje" id="mensaje" name="mensaje"></textarea>
-
-                    <button class="boton formulario__boton" type="submit">Enviar</button>
-                </form>
+        <div class="bg-presentacion">
+            <section class="presentacion">
+                <article class="tarjeta">
+                    <div class="foto foto-juanC"></div>
+                    <h2 class="tarjeta__nombre">Juan Colorado</h2>
+                    <p class="tarjeta__texto">juan stiven</p>
+                    <a href="html/index_colorado.html" class="boton">Ver Perfil</a>
+                </article>
+                <article class="tarjeta">
+                    <div class="foto foto-danielC"></div>
+                    <h2 class="tarjeta__nombre">Daniel Cobo</h2>
+                    <p class="tarjeta__texto">danidoog</p>
+                    <a href="html/index_daniel.html" class="boton">Ver Perfil</a>
+                </article>
             </section>
+        </div>
+
+        <section class="siguenos">
+            <h2 class="titulo-seccion">Síguenos</h2>
+            <div class="redes-index">
+                <a href="https://github.com" target="_blank" class="icono-link" aria-label="Github">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-github">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+                    </svg>
+                    <span>Github</span>
+                </a>
+                <a href="https://gmail.com" class="icono-link" aria-label="Correo">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-mail">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10" /><path d="M3 7l9 6l9 -6" />
+                    </svg>
+                    <span>Gmail</span>
+                </a>
+            </div>
+        </section>
 
     </main>
 
-    <!-- Pie de página -->
-    <!-- id justificado: el footer es único en la página; se usa para demostrar
-         que un selector de id gana en especificidad sobre uno de clase (ver styles.css) -->
     <footer class="footer" id="pie-principal">
-        <p class="footer__texto">
-            <svg xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="icono">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"/>
-                <path d="M14 9.75a3.016 3.016 0 0 0 -4.163 .173a2.993 2.993 0 0 0 0 4.154a3.016 3.016 0 0 0 4.163 .173"/>
-            </svg>
-            Copyright 2026
-        </p>
+        <p class="footer__texto">© 2026 Proyecto Portafolio - <span>Todos los derechos reservados</span></p>
     </footer>
 
 </body>

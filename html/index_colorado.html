@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio - Ingeniería de sistemas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="../css/normalize.css" as="style">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="preload" href="../css/style.css" as="style">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- Encabezado de la página -->
+    <!-- id justificado: el header principal es único en la página, se usa para
+         demostrar especificidad de id sobre clase (ver styles.css) -->
+    <header class="header" id="header-principal">
+        <h1 class="header__titulo">ingenieria de sistemas</h1>
+    </header>
+
+    <!-- Menú principal: enlaces ancla a cada sección -->
+    <nav class="nav">
+        <a class="nav__enlace" href="../index.html">inicio</a>
+        <a class="nav__enlace" href="#sobre-mi">sobre nosotros</a>
+        <a class="nav__enlace" href="#proyectos">proyectos</a>
+        <a class="nav__enlace" href="#contacto">contactos</a>
+    </nav>
+
+    <main>
+
+        <!-- Sección de portada: imagen de fondo y texto centrado -->
+        <section class="hero" id="inicio">
+        <div class="hero__contenido">
+            <h2 class="hero__titulo">Bienvenido a mi sitio web</h2>
+            <p class="hero__texto">Esta es una descripción corta de lo que ofrezco.</p>
+            <p class="hero__ubicacion"><svg class="icono"
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#607d8b"
+                stroke-width="1"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                >
+                <path d="M12 18.5l-3 -1.5l-6 3v-13l6 -3l6 3l6 -3v7.5" />
+                <path d="M9 4v13" />
+                <path d="M15 7v5.5" />
+                <path d="M21.121 20.121a3 3 0 1 0 -4.242 0c.418 .419 1.125 1.045 2.121 1.879c1.051 -.89 1.759 -1.516 2.121 -1.879z" />
+                <path d="M19 18v.01" />
+                </svg>
+                        popayan, colombia
+                        </p>
+            <a href="#contacto" class="hero__cta">Contactame</a>
+        </div>
+        </section>
+
+        <!-- Sección Sobre mí -->
+        <section class="sobre-mi" id="sobre-mi">
+            <h2 class="titulo-seccion">sobre mí</h2>
+            <p class="sobre-mi__texto">
+                Hola soy Juan Colorado. Soy estudiante de ingeniería de sistemas con experiencia en mantenimiento de equipos
+                electrónicos y desarrollo de software. Me apasiona crear soluciones tecnológicas
+                prácticas, desde aplicaciones web hasta programas de escritorio, y disfruto aprendiendo
+                nuevas herramientas para mejorar cada proyecto en el que trabajo.
+            </p>
+        </section>
+
+ <!-- Lista de proyectos -->
+ <section class="servicios" id="proyectos">
+    <h2 class="titulo-seccion">Mis proyectos</h2>
+
+    <!-- Nuevo contenedor SOLO para las tarjetas -->
+    <div class="servicios__grid">
+
+        <article class="tarjeta">
+            <div class="tarjeta__cabecera">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    width="50"
+                    height="50"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="icono">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M9 12l2 2l4 -4" />
+                    <path d="M12 3a12 12 0 0 0 8.5 3a12 12 0 0 1 -8.5 15a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3" />
+                </svg>
+                <span class="tarjeta__nombre">sistema de gestión de inventarios</span>
+            </div>
+            <p class="tarjeta__texto">
+                aplicación de escritorio para el control de entradas, salidas y stock de un pequeño negocio, con reportes en tiempo real.
+            </p>
+        </article>
+
+        <article class="tarjeta">
+            <div class="tarjeta__cabecera">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                width="50"
+                height="50"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="icono">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M4 4h16v16h-16z" />
+                    <path d="M4 9h16" />
+                    <path d="M9 4v16" />
+                </svg>
+                <span class="tarjeta__nombre">plataforma de reservas en línea</span>
+            </div>
+            <p class="tarjeta__texto">
+                sitio web para agendar citas y servicios, con panel de administración y notificaciones automáticas por correo.
+            </p>
+        </article>
+
+        <article class="tarjeta">
+            <div class="tarjeta__cabecera">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                width="50"
+                height="50"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="icono">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M7 4v16l13 -8z" />
+                </svg>
+                <span class="tarjeta__nombre">app móvil de seguimiento de hábitos</span>
+            </div>
+            <p class="tarjeta__texto">
+                aplicación móvil para registrar hábitos diarios, con recordatorios, rachas de cumplimiento y estadísticas de progreso.
+            </p>
+        </article>
+
+        <article class="tarjeta">
+            <div class="tarjeta__cabecera">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                width="50"
+                height="50"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="icono">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M8 9l-4 3l4 3" />
+                    <path d="M16 9l4 3l-4 3" />
+                    <path d="M14 4l-4 16" />
+                </svg>
+                <span class="tarjeta__nombre">bot de automatización de tareas</span>
+            </div>
+            <p class="tarjeta__texto">
+                script/bot que automatiza tareas repetitivas de oficina (envío de correos, generación de reportes y respaldo de datos).
+            </p>
+        </article>
+
+    </div>
+</section>
+
+            <!-- Formulario de contacto -->
+            <section class="contacto" id="contacto">
+                <h2 class="contacto__titulo">contacto</h2>
+                <p class="contacto__texto">¿Tienes alguna pregunta? Contáctame.</p>
+
+                <form class="formulario">
+                    <label class="formulario__etiqueta" for="nombre">Nombre:</label>
+                    <input class="formulario__campo" type="text" id="nombre" name="nombre">
+
+                    <label class="formulario__etiqueta" for="email">Correo:</label>
+                    <input class="formulario__campo" type="email" id="email" name="email">
+
+                    <label class="formulario__etiqueta" for="mensaje">Mensaje:</label>
+                    <textarea class="formulario__campo formulario__campo--mensaje" id="mensaje" name="mensaje"></textarea>
+
+                    <button class="boton formulario__boton" type="submit">Enviar</button>
+                </form>
+            </section>
+
+    </main>
+
+    <!-- Pie de página -->
+    <!-- id justificado: el footer es único en la página; se usa para demostrar
+         que un selector de id gana en especificidad sobre uno de clase (ver styles.css) -->
+    <footer class="footer" id="pie-principal">
+        <p class="footer__texto">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="icono">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"/>
+                <path d="M14 9.75a3.016 3.016 0 0 0 -4.163 .173a2.993 2.993 0 0 0 0 4.154a3.016 3.016 0 0 0 4.163 .173"/>
+            </svg>
+            Copyright 2026
+        </p>
+    </footer>
+
+</body>
+</html>

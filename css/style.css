@@ -4,7 +4,7 @@
    en todo el sitio mediante var(). Cambiar un valor aquí actualiza toda
    la página.
    ========================================================================== */
-:root {
+   :root {
     --color-fondo: #000;
     --color-superficie: #2c2c2c;
     --color-texto-claro: #f3f3f3;
@@ -147,6 +147,96 @@ body {
 }
 
 /* ==========================================================================
+   PRESENTACIÓN (index.html)
+   Reutiliza .tarjeta y .boton ya definidos más abajo; aquí solo se agrega
+   el contenedor, el grid y las fotos de perfil.
+   ========================================================================== */
+.bg-presentacion {
+    background-color: #111;
+    padding: 40px 20px;
+}
+
+.presentacion {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.presentacion .tarjeta {
+    flex: 0 0 calc(50% - 10px);
+    max-width: calc(50% - 10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.presentacion .tarjeta .boton {
+    margin-top: 10px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.foto {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: var(--color-superficie);
+    background-size: cover;
+    background-position: center;
+    border: 3px solid var(--color-acento);
+}
+
+/* Reemplaza estas rutas por las fotos reales de cada integrante */
+.foto-juanC {
+    background-image: url('../img/juanC.png');
+}
+
+.foto-danielC {
+    background-image: url('../img/danielC.jpg');
+}
+
+/* ==========================================================================
+   SÍGUENOS (redes sociales del index)
+   ========================================================================== */
+.siguenos {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.redes-index {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    flex-wrap: wrap;
+}
+
+.icono-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    color: var(--color-texto-claro);
+    text-decoration: none;
+    transition: color var(--transicion-base);
+}
+
+.icono-link:hover {
+    color: var(--color-acento-hover);
+}
+
+.icono-link svg {
+    transition: transform var(--transicion-base);
+}
+
+.icono-link:hover svg {
+    transform: translateY(-3px);
+}
+
+/* ==========================================================================
    HERO / PORTADA
    id justificado: #inicio es la única sección de portada de la página.
    ========================================================================== */
@@ -162,7 +252,7 @@ body {
     color: #fff;
     padding: 80px 20px;
 
-    background-image: url('img/img1.jpeg');
+    background-image: url('../img/img1.jpeg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -173,7 +263,7 @@ body {
     content: "";
     position: absolute;
     inset: 0;
-    background-image: url('img/img1.jpeg');
+    background-image: url('../img/img1.jpeg');
     background-size: cover;
     background-position: center;
     filter: blur(8px);
