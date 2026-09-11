@@ -1,11 +1,46 @@
-/* Página completa: fuente Roboto y fondo negro */
-body {
-    margin: 0;
-    font-family: "Roboto", Arial, Helvetica, sans-serif;
-    background-color: #000;
+/* ==========================================================================
+   VARIABLES GLOBALES (:root)
+   Se centralizan colores, tipografía, radios y transiciones reutilizadas
+   en todo el sitio mediante var(). Cambiar un valor aquí actualiza toda
+   la página.
+   ========================================================================== */
+:root {
+    --color-fondo: #000;
+    --color-superficie: #2c2c2c;
+    --color-texto-claro: #f3f3f3;
+    --color-acento: #008000;
+    --color-acento-hover: rgb(0, 168, 76);
+    --fuente-principal: "Roboto", Arial, Helvetica, sans-serif;
+    --radio-borde: 8px;
+    --transicion-base: 0.3s ease;
 }
 
-/* Barra superior con el título */
+/* ==========================================================================
+   RESET BÁSICO
+   box-sizing: border-box en todos los elementos para que padding y border
+   no aumenten el ancho/alto definido. Se limpian márgenes por defecto del
+   navegador para partir de una base predecible (normalize.css ya normaliza
+   diferencias entre navegadores; este bloque añade nuestras propias reglas).
+   ========================================================================== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ==========================================================================
+   PÁGINA COMPLETA
+   ========================================================================== */
+body {
+    font-family: var(--fuente-principal);
+    background-color: var(--color-fondo);
+}
+
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
 .header {
     background-color: #333;
     color: #fff;
@@ -14,49 +49,50 @@ body {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
-/* Título del header más grande y con la primera letra en mayúscula */
 .header__titulo {
-    margin: 0;
     font-size: 32px;
     letter-spacing: 1px;
     text-transform: capitalize;
 }
 
-/* Menú de navegación: enlaces centrados en fila */
+/* ==========================================================================
+   NAVEGACIÓN (Flexbox grupo 1: enlaces del menú en fila/columna)
+   ========================================================================== */
 .nav {
-    display: flex ;
+    display: flex;
     justify-content: center;
     gap: 28px;
     background-color: #444;
     padding: 14px 20px;
 }
 
-/* Enlaces del menú: blancos, sin subrayado */
 .nav__enlace {
     color: #fff;
     text-decoration: none;
     font-weight: bold;
     text-transform: capitalize;
     padding: 8px 12px;
-    border-radius: 5px;
+    border-radius: var(--radio-borde);
+    transition: background-color var(--transicion-base), color var(--transicion-base);
 }
 
-/* Al pasar el mouse, el enlace se resalta */
 .nav__enlace:hover {
-    padding: 25px;
     background-color: #555;
-    color: rgb(0, 168, 76);
+    color: var(--color-acento-hover);
 }
 
-/* Botones generales: fondo oscuro y texto blanco */
+/* ==========================================================================
+   BOTONES GENERALES
+   ========================================================================== */
 .boton {
     background-color: #333;
     color: #fff;
     padding: 10px;
     text-align: center;
-    border-radius: 5px;
+    border-radius: var(--radio-borde);
     border: none;
     cursor: pointer;
+    transition: background-color var(--transicion-base);
 }
 
 .boton:hover {
@@ -75,7 +111,6 @@ body {
     background-color: #bbb;
 }
 
-/* Botón claro (para usar sobre fondos oscuros o fotos) */
 .boton--claro {
     background-color: #fff;
     color: #333;
@@ -85,7 +120,13 @@ body {
     background-color: #eee;
 }
 
-/* Pie de página: texto centrado sobre fondo negro */
+/* ==========================================================================
+   FOOTER
+   id justificado: #pie-principal es único en la página. La regla con id
+   tiene mayor especificidad que la de clase (.footer) y por eso puede
+   sobrescribir el color de fondo sin necesitar !important. Esto demuestra
+   el concepto de especificidad id vs. clase visto en clase.
+   ========================================================================== */
 .footer {
     display: flex;
     justify-content: center;
@@ -95,15 +136,20 @@ body {
     padding: 20px;
 }
 
-/* Copyright e icono alineados en una sola línea */
+#pie-principal {
+    background-color: #0a0a0a; /* gana sobre .footer por mayor especificidad del id */
+}
+
 .footer__texto {
     display: flex;
     align-items: center;
     gap: 6px;
-    margin: 0;
 }
 
-/* Sección de portada: el contenido queda centrado encima de la imagen */
+/* ==========================================================================
+   HERO / PORTADA
+   id justificado: #inicio es la única sección de portada de la página.
+   ========================================================================== */
 .hero {
     position: relative;
     overflow: hidden;
@@ -115,17 +161,23 @@ body {
     text-align: center;
     color: #fff;
     padding: 80px 20px;
+
+    background-image: url('img/img1.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-/* Imagen de fondo: cubre toda la sección y va un poco borrosa */
-.hero__imagen {
+/* Capa borrosa detrás del contenido, usando la misma imagen de fondo */
+.hero::before {
+    content: "";
     position: absolute;
     inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    background-image: url('img/img1.jpeg');
+    background-size: cover;
+    background-position: center;
     filter: blur(8px);
-    transform: scale(1.1); /* agranda un poco para no ver bordes del blur */
+    transform: scale(1.1);
     z-index: 0;
 }
 
@@ -138,20 +190,22 @@ body {
     z-index: 1;
 }
 
-/* Título, ubicación y botón quedan encima de la imagen */
+/* El contenido queda por encima de los pseudo-elementos ::before y ::after */
 .hero__contenido {
     position: relative;
     z-index: 2;
 }
 
-/* Título de la portada con sombra para contrastar */
 .hero__titulo {
     margin: 0 0 16px;
     font-size: 36px;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 
-/* Ubicación: icono y texto juntos */
+.hero__texto {
+    margin-bottom: 12px;
+}
+
 .hero__ubicacion {
     display: flex;
     align-items: center;
@@ -162,34 +216,50 @@ body {
     color: #fff;
     font-weight: bold;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
-
-        
 }
+
 .hero__cta {
     margin-top: 5px;
     font-size: 18px;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
     text-decoration: none;
     padding: 12px 24px;
-    border-radius: 8px;
-    background-color: #008000;
+    border-radius: var(--radio-borde);
+    background-color: var(--color-acento);
     color: #fff;
-    transition: background-color 0.3s ease;
+    transition: background-color var(--transicion-base);
     display: inline-block;
     text-align: center;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
-/* Espacio interno de la zona de servicios y contacto */
-.contenido {
-    padding: 20px;
+
+.hero__cta:hover {
+    background-color: var(--color-acento-hover);
 }
 
-/* Título "mis servicios" en gris claro para leerse sobre el fondo negro */
+/* ==========================================================================
+   SOBRE MÍ
+   ========================================================================== */
+.sobre-mi {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.sobre-mi__texto {
+    color: var(--color-texto-claro);
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+/* ==========================================================================
+   TÍTULOS DE SECCIÓN
+   ========================================================================== */
 .titulo-seccion {
     color: #e0e0e0;
-    gap: 20px;
     font-size: 24px;
     font-weight: bold;
     text-align: center;
@@ -200,55 +270,72 @@ body {
     margin-top: 20px;
 }
 
+/* La sección principal ahora solo da espacio y centra el título */
+.servicios {
+    padding: 20px;
+    text-align: center; 
+}
+
+/* El margen para separar el título de las tarjetas */
+.titulo-seccion {
+    margin-bottom: 40px;
+}
+
+/* Flexbox ahora solo controla las tarjetas */
+.servicios__grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
 .tarjeta,
 .contacto {
-    width: calc(100% - 30px);
-    max-width: auto; 
-    box-shadow: none;
-    margin: 30px auto;
+    background-color: var(--color-superficie);
+    color: var(--color-texto-claro);
+    border-radius: var(--radio-borde);
     padding: 25px;
-    background-color: #2c2c2c;
-    color: #f3f3f3;
-    border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-    box-sizing: border-box; /* Fundamental para que el padding no rompa el ancho */
-    filter: drop-shadow(0px 0px 10px rgba(52, 152, 219, 0.7)); 
-    /* Recomendación: Añadir una transición suave si vas a cambiar el brillo al pasar el mouse */
-    transition: filter 0.3s ease-in-out;
+    filter: drop-shadow(0px 0px 10px rgba(52, 152, 219, 0.7));
+    transition: filter var(--transicion-base);
 }
 
 .tarjeta:hover,
 .contacto:hover {
-    filter: drop-shadow(0px 0px 15px rgba(31, 228, 87, 0.9)); 
+    filter: drop-shadow(0px 0px 15px rgba(31, 228, 87, 0.9));
 }
 
-/* Título de cada servicio: icono y texto en la misma fila */
+.tarjeta {
+    flex: 1 1 260px;
+    max-width: 320px;
+}
+
 .tarjeta__cabecera {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-/* Nombre del servicio en negrita */
 .tarjeta__nombre {
     font-weight: bold;
     font-size: 20px;
 }
 
-/* Descripción de cada servicio con más espacio entre líneas */
 .tarjeta__texto {
     margin-top: 15px;
     line-height: 1.5;
 }
 
-/* Sección de contacto: un poco más de espacio */
+/* ==========================================================================
+   CONTACTO
+   ========================================================================== */
 .contacto {
-    text-align: left;
-    margin-top: 50px;
+    width: calc(100% - 30px);
+    max-width: 700px;
+    margin: 30px auto;
     padding: 30px;
+    text-align: left;
 }
 
-/* Formulario en columna: nombre, correo, mensaje uno debajo del otro */
 .formulario {
     display: flex;
     flex-direction: column;
@@ -257,98 +344,81 @@ body {
     margin: 20px 0 0;
 }
 
-/* Etiquetas del formulario en negrita */
 .formulario__etiqueta {
     text-align: left;
     font-weight: bold;
 }
 
-/* Campos de texto y área de mensaje */
 .formulario__campo {
     padding: 12px;
     border: 1px solid #ccc;
-    border-radius: 8px;
+    border-radius: var(--radio-borde);
     font-size: 16px;
 }
 
-/* El mensaje es más alto y se puede estirar hacia abajo */
 .formulario__campo--mensaje {
     height: 120px;
     resize: vertical;
 }
 
-/* Botón Enviar un poco más grande */
 .formulario__boton {
     padding: 12px;
-    border-radius: 8px;
+    border-radius: var(--radio-borde);
     font-size: 16px;
 }
 
+/* ==========================================================================
+   MEDIA QUERIES (responsive)
+   ========================================================================== */
+
+/* 1) Tablets y móviles grandes: el menú se apila y el formulario ocupa
+      todo el ancho de la tarjeta de contacto */
 @media (max-width: 768px) {
-    /* El menú de navegación se apila verticalmente en celulares */
     .nav {
         flex-direction: column;
         gap: 14px;
         align-items: center;
     }
-                         
-    /* El formulario se adapta al 100% del ancho de la tarjeta */
+
     .formulario {
+        max-width: 100%;
+    }
+
+    .servicios {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .tarjeta {
+        width: 100%;
         max-width: 100%;
     }
 }
 
-/* Sección de portada: imagen de fondo y texto centrado */
-.hero {
-    position: relative;
-    overflow: hidden;
-    min-height: 420px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #fff;
-    padding: 80px 20px;
-
-    /* Carga de la imagen de fondo */
-    background-image: url('img/img1.jpeg');
-    background-size: cover;          /* Cubre todo el espacio sin deformarse */
-    background-position: center;     /* Centra la imagen */
-    background-repeat: no-repeat;    /* Evita que se repita en mosaico */
+/* 2) A partir de 480px el botón puede recuperar un ancho automático en
+      lugar de ocupar todo el contenedor */
+@media (min-width: 480px) {
+    .boton {
+        width: auto;
+    }
 }
 
-/* Opcional: Si antes usabas .hero__imagen para el blur, puedes aplicarlo así: */
-.hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: url('img/img1.jpeg');
-    background-size: cover;
-    background-position: center;
-    filter: blur(8px);
-    transform: scale(1.1); /* Evita bordes blancos por el blur */
-    z-index: 0;
-}
+/* 3) Móviles pequeños: se reduce el tamaño de fuente de los títulos y
+      textos principales para que no se corten en pantallas angostas */
+@media (max-width: 480px) {
+    .hero__titulo {
+        font-size: 28px;
+    }
 
-/* Capa oscura sobre la foto para que el texto blanco se lea mejor */
-.hero::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-color: rgba(0, 0, 0, 0.45);
-    z-index: 1;
-}
+    .hero__texto {
+        font-size: 15px;
+    }
 
-/* El contenido debe estar por encima de los pseudo-elementos ::before y ::after */
-.hero__contenido {
-    position: relative;
-    z-index: 2;
-}
+    .hero__ubicacion {
+        font-size: 16px;
+    }
 
-
-@media(min-with:480px){
-    .boton{
-        width: auto ;
+    .titulo-seccion {
+        font-size: 20px;
     }
 }
