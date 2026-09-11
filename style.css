@@ -287,7 +287,11 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
+    max-width: 800px; /* Nuevo: Evita que se estiren demasiado en PC */
+    margin: 0 auto; /* Nuevo: Centra la cuadrícula */
 }
+
+/* ESTE BLOQUE SE QUEDA IGUAL (Mantiene tus colores y sombras) */
 .tarjeta,
 .contacto {
     background-color: var(--color-superficie);
@@ -299,27 +303,34 @@ body {
     transition: filter var(--transicion-base);
 }
 
+/* ESTE BLOQUE SE QUEDA IGUAL (Efecto hover) */
 .tarjeta:hover,
 .contacto:hover {
     filter: drop-shadow(0px 0px 15px rgba(31, 228, 87, 0.9));
 }
 
+/* AQUÍ CAMBIAN LOS TAMAÑOS PARA EL 2X2 */
 .tarjeta {
-    flex: 1 1 260px;
-    max-width: 320px;
+    flex: 0 0 calc(50% - 10px); 
+    max-width: calc(50% - 10px);
+    text-align: center; /* Nuevo: Centra el texto */
 }
 
+/* AQUÍ CAMBIA A COLUMNA PARA CENTRAR ICONO Y TÍTULO */
 .tarjeta__cabecera {
     display: flex;
+    flex-direction: column; /* Nuevo: Apila en vertical */
     align-items: center;
-    gap: 10px;
+    gap: 15px;
 }
 
 .tarjeta__nombre {
     font-weight: bold;
     font-size: 20px;
+    text-align: center; /* Nuevo: Centra títulos largos */
 }
 
+/* ESTE BLOQUE SE QUEDA IGUAL */
 .tarjeta__texto {
     margin-top: 15px;
     line-height: 1.5;
@@ -390,7 +401,7 @@ body {
     }
 
     .tarjeta {
-        width: 100%;
+        flex: 1 1 100%; 
         max-width: 100%;
     }
 }
